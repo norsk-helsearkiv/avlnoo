@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<avlnoo xmlns="http://www.arkivverket.no/standarder/nha/avlnoo"
+    xmlns:avlmdk="http://www.arkivverket.no/standarder/nha/avlnoo/avlnoo-mdk"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.arkivverket.no/standarder/nha/avlnoo avlnoo.xsd">
+
+    <!-- DEPONERING
+        deponeringsid           | string  | O | En unik identifikator tildelt av Norsk helsearkiv ved inngåelse av avtale om deponering. 
+        deponeringsbeskrivelse  | string  | O | Tekstlig beskrivelse av den aktuelle deponeringen. Typisk beskrivelse av serie, periode eller annen avgrensning. 
+        generertdato            | date    | B | Den dato listen over metadata ble generert ble generert 
+        avleverer               | string  | B | Navnet på den avleverende enhet. Typisk statsforvalter eller lignende.  
+        behandler               | string  | B | Navn på behandler som registrert på HPR-registeret 
+        behandlerid             | string  | B | Typisk HPR-nummer til behandler. 
+        spesialisthelsetjeneste | boolean | B | Angir om behandler er del av spesialisthelsetjenesten og omfattet av helsearkivforskrifta [4] eller ikke 
+    -->
+
+    <deponeringsid>INC20</deponeringsid>
+    <deponeringsbeskrivelse>Tekstlig beskrivelse av den aktuelle deponeringen. Typisk beskrivelse av serie, periode eller annen avgrensning.</deponeringsbeskrivelse>
+    <generertdato>2021-09-09</generertdato>
+    <avleverer>Navnet på den avleverende enhet. Typisk statsforvalter eller lignende.</avleverer>
+    <behandler>Navn på behandler som registrert på HPR-registeret.</behandler>
+    <behandlerid>Typisk HPR-nummer til behandler.</behandlerid>
+    <spesialisthelsetjeneste>0</spesialisthelsetjeneste>
+
+    <!-- PASIENTJOURNAL
+        journalid    | string | O | Identifikator for pasientjournalen som er garantert unik innenfor denne avleveringen. Skal være det samme som filnavnet på pdf dersom det er generert pdf. (pasientID+datetime er å foretrekke ) 
+        opprettet    | date   | O | Dato for når registreringen er opprettet
+        pasientid    | string | O | Pasientens unike ID-nummer.  Fortrinnsvis brukes personnummer, men nasjonal D-nummer eller virksomhetsinterne H-nummer eller FH-nummer kan registreres dersom pasientens personnummer ikke er kjent. 
+        pasientnavn  | string | O | Pasientens fulle navn
+        fodtdato     | date   | O | Pasientens fødselsdato, eller fødselsår dersom bare årstall er kjent
+        sistekontakt | date   | B | Siste anførsel i journalen. Blir registrert så lenge det går frem av pasientjournalomslag. 
+        merknad      | string | B | Felt for registrering av fritekstmerknad dersom brukeren har behov for å knytte en beskrivende anmerkning til journalavleveringen.
+    -->
+
+    <pasientjournal>
+        <journalid>journalidentifikator0</journalid>
+        <opprettet>2021-09-09</opprettet>
+        <pasientid>12345612345</pasientid>
+        <pasientnavn>pasientnavn0</pasientnavn>
+        <fodtdato>1800</fodtdato>
+        <sistekontakt>1800</sistekontakt>
+        <merknad>merknad</merknad>
+    </pasientjournal>
+    <pasientjournal>
+        <journalid>journalidentifikator0</journalid>
+        <opprettet>2021-09-09</opprettet>
+        <pasientid>12345612345</pasientid>
+        <pasientnavn>pasientnavn0</pasientnavn>
+        <fodtdato>1800</fodtdato>
+        <sistekontakt>1800</sistekontakt>
+        <merknad>merknad</merknad>
+    </pasientjournal>
+        
+    <!-- DATABASEDUMP
+        filnavn    | string | O | Filnavn
+        dumpdato   | date   | O | Dumpet dato
+        fagsystem  | string | B | Fagsystemet databasen kommer fra
+        dbtype     | string | B | Type, dersom kjent (SQL, NoSQL, OO)
+        pasantall  | int    | B | Antall pasientjournaler i databasen dersom kjent
+        storrelse  | long   | B | Databasens størrelse i bytes, dersom kjent
+        pakket     | string | B | Er databasen pakket, i hva? F.eks. tar eller zip
+        komprimert | string | B | Er databasen komprimert, f.eks zip, bzip2, gz
+    -->
+    
+    <databasedump>
+        <filnavn>dbdump01.tar</filnavn>
+        <dumpdato>2021-09-09</dumpdato>
+        <fagsystem>fagsystem</fagsystem>
+        <dbtype>SQL</dbtype>
+        <pasantall>2</pasantall>
+        <storrelse>800008</storrelse>
+        <pakket>zip</pakket>
+        <komprimert>zip</komprimert>
+    </databasedump>
+</avlnoo>

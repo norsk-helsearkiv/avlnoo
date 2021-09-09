@@ -1,0 +1,2809 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>Schema documentation for avlnoo-mdk.xsd</title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css" /><script type="text/javascript"><!--
+        var propertiesBoxes= new Array('properties_avlnoo-mdk.xsd');
+var facetsBoxes= new Array('facets_deponeringsid', 
+				'facets_opprettet', 
+				'facets_arkDATO', 
+				'facets_fodtdato', 
+				'facets_sistekontakt');
+var usedByBoxes= new Array('usedBy_deponeringsid', 
+				'usedBy_deponeringsbeskrivelse', 
+				'usedBy_generertdato', 
+				'usedBy_avleverer', 
+				'usedBy_behandler', 
+				'usedBy_behandlerid', 
+				'usedBy_spesialisthelsetjeneste', 
+				'usedBy_journalid', 
+				'usedBy_opprettet', 
+				'usedBy_arkDATO', 
+				'usedBy_pasientid', 
+				'usedBy_pasientnavn', 
+				'usedBy_fodtdato', 
+				'usedBy_sistekontakt', 
+				'usedBy_merknad', 
+				'usedBy_filnavn', 
+				'usedBy_dumpdato', 
+				'usedBy_fagsystem', 
+				'usedBy_dbtype', 
+				'usedBy_pasantall', 
+				'usedBy_storrelse', 
+				'usedBy_pakket', 
+				'usedBy_komprimert');
+var sourceBoxes= new Array('source_deponeringsid', 
+				'source_deponeringsbeskrivelse', 
+				'source_generertdato', 
+				'source_avleverer', 
+				'source_behandler', 
+				'source_behandlerid', 
+				'source_spesialisthelsetjeneste', 
+				'source_journalid', 
+				'source_opprettet', 
+				'source_arkDATO', 
+				'source_pasientid', 
+				'source_pasientnavn', 
+				'source_fodtdato', 
+				'source_sistekontakt', 
+				'source_merknad', 
+				'source_filnavn', 
+				'source_dumpdato', 
+				'source_fagsystem', 
+				'source_dbtype', 
+				'source_pasantall', 
+				'source_storrelse', 
+				'source_pakket', 
+				'source_komprimert');
+var diagramBoxes= new Array('diagram_deponeringsid', 
+				'diagram_deponeringsbeskrivelse', 
+				'diagram_generertdato', 
+				'diagram_avleverer', 
+				'diagram_behandler', 
+				'diagram_behandlerid', 
+				'diagram_spesialisthelsetjeneste', 
+				'diagram_journalid', 
+				'diagram_opprettet', 
+				'diagram_arkDATO', 
+				'diagram_pasientid', 
+				'diagram_pasientnavn', 
+				'diagram_fodtdato', 
+				'diagram_sistekontakt', 
+				'diagram_merknad', 
+				'diagram_filnavn', 
+				'diagram_dumpdato', 
+				'diagram_fagsystem', 
+				'diagram_dbtype', 
+				'diagram_pasantall', 
+				'diagram_storrelse', 
+				'diagram_pakket', 
+				'diagram_komprimert');
+var annotationBoxes= new Array('annotations_deponeringsid', 
+				'annotations_deponeringsbeskrivelse', 
+				'annotations_generertdato', 
+				'annotations_avleverer', 
+				'annotations_behandler', 
+				'annotations_behandlerid', 
+				'annotations_spesialisthelsetjeneste', 
+				'annotations_journalid', 
+				'annotations_opprettet', 
+				'annotations_arkDATO', 
+				'annotations_pasientid', 
+				'annotations_pasientnavn', 
+				'annotations_fodtdato', 
+				'annotations_sistekontakt', 
+				'annotations_merknad', 
+				'annotations_filnavn', 
+				'annotations_dumpdato', 
+				'annotations_fagsystem', 
+				'annotations_dbtype', 
+				'annotations_pasantall', 
+				'annotations_storrelse', 
+				'annotations_pakket', 
+				'annotations_komprimert');
+
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                    //--></script></head>
+   <body>
+      <div id="global_controls" class="globalControls" style="position:absolute;right:0;">
+         <table class="rt">
+            <tr>
+               <td class="rt_cornerTopLeft"></td>
+               <td class="rt_lineTop"></td>
+               <td class="rt_cornerTopRight"></td>
+            </tr>
+            <tr>
+               <td class="rt_lineLeft"></td>
+               <td class="rt_content">
+                  <h3>Showing:</h3>
+                  <table>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, annotationBoxes);" class="control" /></span><span class="globalControlName">Annotations</span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, diagramBoxes);" class="control" /></span><span class="globalControlName">Diagrams</span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, facetsBoxes);" class="control" /></span><span class="globalControlName">Facets </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, propertiesBoxes);" class="control" /></span><span class="globalControlName">Properties </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, sourceBoxes);" class="control" /></span><span class="globalControlName">Source</span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, usedByBoxes);" class="control" /></span><span class="globalControlName">Used by </span></td>
+                     </tr>
+                  </table>
+                  <div align="right"><span><input type="button" onclick="getElementObject('global_controls').style.display = 'none';" value="Close" /></span></div>
+               </td>
+               <td class="rt_lineRight"></td>
+            </tr>
+            <tr>
+               <td class="rt_cornerBottomLeft"></td>
+               <td class="rt_lineBottom"></td>
+               <td class="rt_cornerBottomRight"></td>
+            </tr>
+         </table>
+      </div><a id="avlnoo-mdk.xsd"></a><div class="componentTitle">Imported schema <span class="qname">avlnoo-mdk.xsd</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_avlnoo-mdk.xsd" type="image" src="img/btM.gif" value="-" onclick="switchState('properties_avlnoo-mdk.xsd');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_avlnoo-mdk.xsd" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">attribute form default</td>
+                                    <td><b>unqualified</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">element form default</td>
+                                    <td><b>qualified</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="deponeringsid"></a><div class="componentTitle">Simple Type <span class="qname">deponeringsid</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_deponeringsid" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_deponeringsid');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_deponeringsid" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%">
+                                          <pre><span class="tT">En unik identifikator tildelt av Norsk helsearkiv ved inngåelse av avtale om deponering.</span></pre>
+                                       </td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_deponeringsid" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_deponeringsid');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_deponeringsid" style="display:block"><img alt="Diagram" border="0" src="img/avlnoo-mdk_xsd_Simple_Type_deponeringsid.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td>restriction of <b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Facets</b></div>
+                           <div class="floatRight"><input id="button_facets_deponeringsid" type="image" src="img/btM.gif" value="-" onclick="switchState('facets_deponeringsid');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="facets_deponeringsid" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn">pattern</td>
+                                    <td width="30%"><b>INC[0-9]+</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_deponeringsid" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_deponeringsid');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_deponeringsid" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="avlnoo_xsd.html#deponering_deponeringsid" target="mainFrame" title="http://www.arkivverket.no/standarder/nha/avlnoo" onclick="updatePageTitle('Schema documentation for avlnoo.xsd')">deponering/deponeringsid</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_deponeringsid" type="image" src="img/btM.gif" value="-" onclick="switchState('source_deponeringsid');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_deponeringsid" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tEl">&lt;xs:simpleType</span><span class="tAN"> name=</span><span class="tAV">"deponeringsid"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">En unik identifikator tildelt av Norsk helsearkiv ved inngåelse av avtale om deponering.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:pattern</span><span class="tAN"> value=</span><span class="tAV">"INC[0-9]+"</span><span class="tEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:simpleType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="deponeringsbeskrivelse"></a><div class="componentTitle">Simple Type <span class="qname">deponeringsbeskrivelse</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_deponeringsbeskrivelse" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_deponeringsbeskrivelse');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_deponeringsbeskrivelse" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%">
+                                          <pre><span class="tT">Tekstlig beskrivelse av den aktuelle deponeringen. Typisk beskrivelse av serie, periode eller annen avgrensning.</span></pre>
+                                       </td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_deponeringsbeskrivelse" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_deponeringsbeskrivelse');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_deponeringsbeskrivelse" style="display:block"><img alt="Diagram" border="0" src="img/avlnoo-mdk_xsd_Simple_Type_deponeringsbeskrivelse.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_deponeringsbeskrivelse" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_deponeringsbeskrivelse');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_deponeringsbeskrivelse" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="avlnoo_xsd.html#deponering_deponeringsbeskrivelse" target="mainFrame" title="http://www.arkivverket.no/standarder/nha/avlnoo" onclick="updatePageTitle('Schema documentation for avlnoo.xsd')">deponering/deponeringsbeskrivelse</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_deponeringsbeskrivelse" type="image" src="img/btM.gif" value="-" onclick="switchState('source_deponeringsbeskrivelse');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_deponeringsbeskrivelse" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tEl">&lt;xs:simpleType</span><span class="tAN"> name=</span><span class="tAV">"deponeringsbeskrivelse"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Tekstlig beskrivelse av den aktuelle deponeringen. Typisk beskrivelse av serie, periode eller annen avgrensning.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:simpleType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="generertdato"></a><div class="componentTitle">Simple Type <span class="qname">generertdato</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_generertdato" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_generertdato');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_generertdato" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%">
+                                          <pre><span class="tT">Den dato listen over metadata ble generert.</span></pre>
+                                       </td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_generertdato" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_generertdato');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_generertdato" style="display:block"><img alt="Diagram" border="0" src="img/avlnoo-mdk_xsd_Simple_Type_generertdato.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:date</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_generertdato" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_generertdato');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_generertdato" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="avlnoo_xsd.html#deponering_generertdato" target="mainFrame" title="http://www.arkivverket.no/standarder/nha/avlnoo" onclick="updatePageTitle('Schema documentation for avlnoo.xsd')">deponering/generertdato</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_generertdato" type="image" src="img/btM.gif" value="-" onclick="switchState('source_generertdato');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_generertdato" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tEl">&lt;xs:simpleType</span><span class="tAN"> name=</span><span class="tAV">"generertdato"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Den dato listen over metadata ble generert.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:date"</span><span class="tEl">/&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:simpleType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="avleverer"></a><div class="componentTitle">Simple Type <span class="qname">avleverer</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_avleverer" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_avleverer');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_avleverer" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%">
+                                          <pre><span class="tT">Navnet på den avleverende enhet. Typisk statsforvalter eller lignende.</span></pre>
+                                       </td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_avleverer" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_avleverer');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_avleverer" style="display:block"><img alt="Diagram" border="0" src="img/avlnoo-mdk_xsd_Simple_Type_avleverer.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_avleverer" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_avleverer');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_avleverer" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="avlnoo_xsd.html#deponering_avleverer" target="mainFrame" title="http://www.arkivverket.no/standarder/nha/avlnoo" onclick="updatePageTitle('Schema documentation for avlnoo.xsd')">deponering/avleverer</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_avleverer" type="image" src="img/btM.gif" value="-" onclick="switchState('source_avleverer');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_avleverer" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tEl">&lt;xs:simpleType</span><span class="tAN"> name=</span><span class="tAV">"avleverer"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Navnet på den avleverende enhet. Typisk statsforvalter eller lignende.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:simpleType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="behandler"></a><div class="componentTitle">Simple Type <span class="qname">behandler</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_behandler" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_behandler');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_behandler" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%">
+                                          <pre><span class="tT">Navn på behandler som registrert på HPR-registeret.</span></pre>
+                                       </td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_behandler" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_behandler');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_behandler" style="display:block"><img alt="Diagram" border="0" src="img/avlnoo-mdk_xsd_Simple_Type_behandler.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_behandler" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_behandler');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_behandler" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="avlnoo_xsd.html#deponering_behandler" target="mainFrame" title="http://www.arkivverket.no/standarder/nha/avlnoo" onclick="updatePageTitle('Schema documentation for avlnoo.xsd')">deponering/behandler</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_behandler" type="image" src="img/btM.gif" value="-" onclick="switchState('source_behandler');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_behandler" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tEl">&lt;xs:simpleType</span><span class="tAN"> name=</span><span class="tAV">"behandler"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Navn på behandler som registrert på HPR-registeret.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:simpleType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="behandlerid"></a><div class="componentTitle">Simple Type <span class="qname">behandlerid</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_behandlerid" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_behandlerid');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_behandlerid" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%">
+                                          <pre><span class="tT">Typisk HPR-nummer til behandler.</span></pre>
+                                       </td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_behandlerid" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_behandlerid');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_behandlerid" style="display:block"><img alt="Diagram" border="0" src="img/avlnoo-mdk_xsd_Simple_Type_behandlerid.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_behandlerid" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_behandlerid');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_behandlerid" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="avlnoo_xsd.html#deponering_behandlerid" target="mainFrame" title="http://www.arkivverket.no/standarder/nha/avlnoo" onclick="updatePageTitle('Schema documentation for avlnoo.xsd')">deponering/behandlerid</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_behandlerid" type="image" src="img/btM.gif" value="-" onclick="switchState('source_behandlerid');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_behandlerid" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tEl">&lt;xs:simpleType</span><span class="tAN"> name=</span><span class="tAV">"behandlerid"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Typisk HPR-nummer til behandler.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:simpleType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="spesialisthelsetjeneste"></a><div class="componentTitle">Simple Type <span class="qname">spesialisthelsetjeneste</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_spesialisthelsetjeneste" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_spesialisthelsetjeneste');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_spesialisthelsetjeneste" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%">
+                                          <pre><span class="tT">Angir om behandler er del av spesialisthelsetjenesten og omfattet av helsearkivforskrifta [4] eller ikke.</span></pre>
+                                       </td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_spesialisthelsetjeneste" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_spesialisthelsetjeneste');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_spesialisthelsetjeneste" style="display:block"><img alt="Diagram" border="0" src="img/avlnoo-mdk_xsd_Simple_Type_spesialisthelsetjeneste.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:boolean</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_spesialisthelsetjeneste" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_spesialisthelsetjeneste');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_spesialisthelsetjeneste" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="avlnoo_xsd.html#deponering_spesialisthelsetjeneste" target="mainFrame" title="http://www.arkivverket.no/standarder/nha/avlnoo" onclick="updatePageTitle('Schema documentation for avlnoo.xsd')">deponering/spesialisthelsetjeneste</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_spesialisthelsetjeneste" type="image" src="img/btM.gif" value="-" onclick="switchState('source_spesialisthelsetjeneste');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_spesialisthelsetjeneste" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tEl">&lt;xs:simpleType</span><span class="tAN"> name=</span><span class="tAV">"spesialisthelsetjeneste"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Angir om behandler er del av spesialisthelsetjenesten og omfattet av helsearkivforskrifta [4] eller ikke.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:boolean"</span><span class="tEl">/&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:simpleType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="journalid"></a><div class="componentTitle">Simple Type <span class="qname">journalid</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_journalid" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_journalid');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_journalid" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%">
+                                          <pre><span class="tT">Identifikator for pasientjournalen som er garantert unik innenfor denne avleveringen. Skal være det samme som filnavnet på pdf dersom det er generert pdf. (pasientID+datetime er å foretrekke).</span></pre>
+                                       </td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_journalid" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_journalid');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_journalid" style="display:block"><img alt="Diagram" border="0" src="img/avlnoo-mdk_xsd_Simple_Type_journalid.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_journalid" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_journalid');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_journalid" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="avlnoo_xsd.html#pasientjournal_journalid" target="mainFrame" title="http://www.arkivverket.no/standarder/nha/avlnoo" onclick="updatePageTitle('Schema documentation for avlnoo.xsd')">pasientjournal/journalid</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_journalid" type="image" src="img/btM.gif" value="-" onclick="switchState('source_journalid');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_journalid" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tEl">&lt;xs:simpleType</span><span class="tAN"> name=</span><span class="tAV">"journalid"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Identifikator for pasientjournalen som er garantert unik innenfor denne avleveringen. Skal være det samme som filnavnet på pdf dersom det er generert pdf. (pasientID+datetime er å foretrekke).</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:simpleType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="opprettet"></a><div class="componentTitle">Simple Type <span class="qname">opprettet</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_opprettet" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_opprettet');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_opprettet" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%">
+                                          <pre><span class="tT">Dato for når registreringen er opprettet.</span></pre>
+                                       </td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_opprettet" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_opprettet');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_opprettet" style="display:block"><img alt="Diagram" border="0" src="img/avlnoo-mdk_xsd_Simple_Type_opprettet.jpeg" usemap="#avlnoo-mdk_xsd_Simple_Type_opprettet" /><map name="avlnoo-mdk_xsd_Simple_Type_opprettet" id="avlnoo-mdk_xsd_Simple_Type_opprettet"><area alt="avlnoo-mdk_xsd.tmp#arkDATO" href="avlnoo-mdk_xsd.html#arkDATO" coords="146,0,245,26" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="avlnoo-mdk_xsd.html#arkDATO" target="mainFrame" title="http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk" onclick="updatePageTitle('Schema documentation for avlnoo-mdk.xsd')">arkDATO</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type hierarchy</b></td>
+                        <td>
+                           <ul class="internal">
+                              <li class="internal"><b>xs:string</b><ul class="internal">
+                                    <li class="internal"><b><a href="avlnoo-mdk_xsd.html#arkDATO" target="mainFrame" title="http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk" onclick="updatePageTitle('Schema documentation for avlnoo-mdk.xsd')">arkDATO</a></b><ul class="internal">
+                                          <li class="internal"><b><a href="avlnoo-mdk_xsd.html#opprettet" target="mainFrame" title="http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk" onclick="updatePageTitle('Schema documentation for avlnoo-mdk.xsd')">opprettet</a></b></li>
+                                       </ul>
+                                    </li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Facets</b></div>
+                           <div class="floatRight"><input id="button_facets_opprettet" type="image" src="img/btM.gif" value="-" onclick="switchState('facets_opprettet');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="facets_opprettet" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn">pattern</td>
+                                    <td width="30%"><b>((1[89][0-9]{2}|20[0-9]{2})(-(0[1-9]|1[012])(-([012][0-9]|3[01]))?)?)|((1[89][0-9]{2}|20[0-9]{2})(0[1-9]|1[012])([012][0-9]|3[01]))</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_opprettet" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_opprettet');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_opprettet" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="avlnoo_xsd.html#pasientjournal_opprettet" target="mainFrame" title="http://www.arkivverket.no/standarder/nha/avlnoo" onclick="updatePageTitle('Schema documentation for avlnoo.xsd')">pasientjournal/opprettet</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_opprettet" type="image" src="img/btM.gif" value="-" onclick="switchState('source_opprettet');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_opprettet" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tEl">&lt;xs:simpleType</span><span class="tAN"> name=</span><span class="tAV">"opprettet"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Dato for når registreringen er opprettet.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"arkDATO"</span><span class="tEl">/&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:simpleType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="arkDATO"></a><div class="componentTitle">Simple Type <span class="qname">arkDATO</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_arkDATO" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_arkDATO');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_arkDATO" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%">
+                                          <pre><span class="tT">Generelt datoformat</span></pre>
+                                       </td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_arkDATO" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_arkDATO');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_arkDATO" style="display:block"><img alt="Diagram" border="0" src="img/avlnoo-mdk_xsd_Simple_Type_arkDATO.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td>restriction of <b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Facets</b></div>
+                           <div class="floatRight"><input id="button_facets_arkDATO" type="image" src="img/btM.gif" value="-" onclick="switchState('facets_arkDATO');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="facets_arkDATO" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn">pattern</td>
+                                    <td width="30%"><b>((1[89][0-9]{2}|20[0-9]{2})(-(0[1-9]|1[012])(-([012][0-9]|3[01]))?)?)|((1[89][0-9]{2}|20[0-9]{2})(0[1-9]|1[012])([012][0-9]|3[01]))</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_arkDATO" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_arkDATO');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_arkDATO" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Simple Types </td>
+                                    <td><b><a href="avlnoo-mdk_xsd.html#fodtdato" target="mainFrame" title="http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk" onclick="updatePageTitle('Schema documentation for avlnoo-mdk.xsd')">fodtdato</a></b>, <b><a href="avlnoo-mdk_xsd.html#opprettet" target="mainFrame" title="http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk" onclick="updatePageTitle('Schema documentation for avlnoo-mdk.xsd')">opprettet</a></b>, <b><a href="avlnoo-mdk_xsd.html#sistekontakt" target="mainFrame" title="http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk" onclick="updatePageTitle('Schema documentation for avlnoo-mdk.xsd')">sistekontakt</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_arkDATO" type="image" src="img/btM.gif" value="-" onclick="switchState('source_arkDATO');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_arkDATO" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tEl">&lt;xs:simpleType</span><span class="tAN"> name=</span><span class="tAV">"arkDATO"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Generelt datoformat</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:pattern</span><span class="tAN"> value=</span><span class="tAV">"(1[89][0-9]{2}|20[0-9]{2})(-(0[1-9]|1[012])(-([012][0-9]|3[01]))?)?"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:pattern</span><span class="tAN"> value=</span><span class="tAV">"(1[89][0-9]{2}|20[0-9]{2})(0[1-9]|1[012])([012][0-9]|3[01])"</span><span class="tEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:simpleType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="pasientid"></a><div class="componentTitle">Simple Type <span class="qname">pasientid</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_pasientid" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_pasientid');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_pasientid" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%">
+                                          <pre><span class="tT">Pasientens unike ID-nummer. Fortrinnsvis brukes personnummer, men nasjonal D-nummer eller virksomhetsinterne H-nummer eller FH-nummer kan registreres dersom pasientens personnummer ikke er kjent.</span></pre>
+                                       </td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_pasientid" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_pasientid');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_pasientid" style="display:block"><img alt="Diagram" border="0" src="img/avlnoo-mdk_xsd_Simple_Type_pasientid.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_pasientid" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_pasientid');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_pasientid" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="avlnoo_xsd.html#pasientjournal_pasientid" target="mainFrame" title="http://www.arkivverket.no/standarder/nha/avlnoo" onclick="updatePageTitle('Schema documentation for avlnoo.xsd')">pasientjournal/pasientid</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_pasientid" type="image" src="img/btM.gif" value="-" onclick="switchState('source_pasientid');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_pasientid" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tEl">&lt;xs:simpleType</span><span class="tAN"> name=</span><span class="tAV">"pasientid"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Pasientens unike ID-nummer. Fortrinnsvis brukes personnummer, men nasjonal D-nummer eller virksomhetsinterne H-nummer eller FH-nummer kan registreres dersom pasientens personnummer ikke er kjent.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:simpleType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="pasientnavn"></a><div class="componentTitle">Simple Type <span class="qname">pasientnavn</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_pasientnavn" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_pasientnavn');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_pasientnavn" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%">
+                                          <pre><span class="tT">Pasientens fulle navn.</span></pre>
+                                       </td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_pasientnavn" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_pasientnavn');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_pasientnavn" style="display:block"><img alt="Diagram" border="0" src="img/avlnoo-mdk_xsd_Simple_Type_pasientnavn.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_pasientnavn" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_pasientnavn');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_pasientnavn" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="avlnoo_xsd.html#pasientjournal_pasientnavn" target="mainFrame" title="http://www.arkivverket.no/standarder/nha/avlnoo" onclick="updatePageTitle('Schema documentation for avlnoo.xsd')">pasientjournal/pasientnavn</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_pasientnavn" type="image" src="img/btM.gif" value="-" onclick="switchState('source_pasientnavn');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_pasientnavn" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tEl">&lt;xs:simpleType</span><span class="tAN"> name=</span><span class="tAV">"pasientnavn"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Pasientens fulle navn.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:simpleType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="fodtdato"></a><div class="componentTitle">Simple Type <span class="qname">fodtdato</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_fodtdato" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_fodtdato');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_fodtdato" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%">
+                                          <pre><span class="tT">Pasientens fødselsdato, eller fødselsår dersom bare årstall er kjent.</span></pre>
+                                       </td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_fodtdato" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_fodtdato');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_fodtdato" style="display:block"><img alt="Diagram" border="0" src="img/avlnoo-mdk_xsd_Simple_Type_fodtdato.jpeg" usemap="#avlnoo-mdk_xsd_Simple_Type_fodtdato" /><map name="avlnoo-mdk_xsd_Simple_Type_fodtdato" id="avlnoo-mdk_xsd_Simple_Type_fodtdato"><area alt="avlnoo-mdk_xsd.tmp#arkDATO" href="avlnoo-mdk_xsd.html#arkDATO" coords="143,0,242,26" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="avlnoo-mdk_xsd.html#arkDATO" target="mainFrame" title="http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk" onclick="updatePageTitle('Schema documentation for avlnoo-mdk.xsd')">arkDATO</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type hierarchy</b></td>
+                        <td>
+                           <ul class="internal">
+                              <li class="internal"><b>xs:string</b><ul class="internal">
+                                    <li class="internal"><b><a href="avlnoo-mdk_xsd.html#arkDATO" target="mainFrame" title="http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk" onclick="updatePageTitle('Schema documentation for avlnoo-mdk.xsd')">arkDATO</a></b><ul class="internal">
+                                          <li class="internal"><b><a href="avlnoo-mdk_xsd.html#fodtdato" target="mainFrame" title="http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk" onclick="updatePageTitle('Schema documentation for avlnoo-mdk.xsd')">fodtdato</a></b></li>
+                                       </ul>
+                                    </li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Facets</b></div>
+                           <div class="floatRight"><input id="button_facets_fodtdato" type="image" src="img/btM.gif" value="-" onclick="switchState('facets_fodtdato');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="facets_fodtdato" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn">pattern</td>
+                                    <td width="30%"><b>((1[89][0-9]{2}|20[0-9]{2})(-(0[1-9]|1[012])(-([012][0-9]|3[01]))?)?)|((1[89][0-9]{2}|20[0-9]{2})(0[1-9]|1[012])([012][0-9]|3[01]))</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_fodtdato" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_fodtdato');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_fodtdato" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="avlnoo_xsd.html#pasientjournal_fodtdato" target="mainFrame" title="http://www.arkivverket.no/standarder/nha/avlnoo" onclick="updatePageTitle('Schema documentation for avlnoo.xsd')">pasientjournal/fodtdato</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_fodtdato" type="image" src="img/btM.gif" value="-" onclick="switchState('source_fodtdato');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_fodtdato" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tEl">&lt;xs:simpleType</span><span class="tAN"> name=</span><span class="tAV">"fodtdato"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Pasientens fødselsdato, eller fødselsår dersom bare årstall er kjent.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"arkDATO"</span><span class="tEl">/&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:simpleType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="sistekontakt"></a><div class="componentTitle">Simple Type <span class="qname">sistekontakt</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_sistekontakt" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_sistekontakt');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_sistekontakt" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%">
+                                          <pre><span class="tT">Siste anførsel i journalen. Blir registrert så lenge det går frem av pasientjournalomslag.</span></pre>
+                                       </td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_sistekontakt" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_sistekontakt');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_sistekontakt" style="display:block"><img alt="Diagram" border="0" src="img/avlnoo-mdk_xsd_Simple_Type_sistekontakt.jpeg" usemap="#avlnoo-mdk_xsd_Simple_Type_sistekontakt" /><map name="avlnoo-mdk_xsd_Simple_Type_sistekontakt" id="avlnoo-mdk_xsd_Simple_Type_sistekontakt"><area alt="avlnoo-mdk_xsd.tmp#arkDATO" href="avlnoo-mdk_xsd.html#arkDATO" coords="160,0,259,26" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="avlnoo-mdk_xsd.html#arkDATO" target="mainFrame" title="http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk" onclick="updatePageTitle('Schema documentation for avlnoo-mdk.xsd')">arkDATO</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type hierarchy</b></td>
+                        <td>
+                           <ul class="internal">
+                              <li class="internal"><b>xs:string</b><ul class="internal">
+                                    <li class="internal"><b><a href="avlnoo-mdk_xsd.html#arkDATO" target="mainFrame" title="http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk" onclick="updatePageTitle('Schema documentation for avlnoo-mdk.xsd')">arkDATO</a></b><ul class="internal">
+                                          <li class="internal"><b><a href="avlnoo-mdk_xsd.html#sistekontakt" target="mainFrame" title="http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk" onclick="updatePageTitle('Schema documentation for avlnoo-mdk.xsd')">sistekontakt</a></b></li>
+                                       </ul>
+                                    </li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Facets</b></div>
+                           <div class="floatRight"><input id="button_facets_sistekontakt" type="image" src="img/btM.gif" value="-" onclick="switchState('facets_sistekontakt');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="facets_sistekontakt" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn">pattern</td>
+                                    <td width="30%"><b>((1[89][0-9]{2}|20[0-9]{2})(-(0[1-9]|1[012])(-([012][0-9]|3[01]))?)?)|((1[89][0-9]{2}|20[0-9]{2})(0[1-9]|1[012])([012][0-9]|3[01]))</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_sistekontakt" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_sistekontakt');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_sistekontakt" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="avlnoo_xsd.html#pasientjournal_sistekontakt" target="mainFrame" title="http://www.arkivverket.no/standarder/nha/avlnoo" onclick="updatePageTitle('Schema documentation for avlnoo.xsd')">pasientjournal/sistekontakt</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_sistekontakt" type="image" src="img/btM.gif" value="-" onclick="switchState('source_sistekontakt');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_sistekontakt" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tEl">&lt;xs:simpleType</span><span class="tAN"> name=</span><span class="tAV">"sistekontakt"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Siste anførsel i journalen. Blir registrert så lenge det går frem av pasientjournalomslag.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"arkDATO"</span><span class="tEl">/&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:simpleType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="merknad"></a><div class="componentTitle">Simple Type <span class="qname">merknad</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_merknad" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_merknad');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_merknad" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%">
+                                          <pre><span class="tT">Felt for registrering av fritekstmerknad dersom brukeren har behov for å knytte en beskrivende anmerkning til journalavleveringen.</span></pre>
+                                       </td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_merknad" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_merknad');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_merknad" style="display:block"><img alt="Diagram" border="0" src="img/avlnoo-mdk_xsd_Simple_Type_merknad.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_merknad" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_merknad');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_merknad" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="avlnoo_xsd.html#pasientjournal_merknad" target="mainFrame" title="http://www.arkivverket.no/standarder/nha/avlnoo" onclick="updatePageTitle('Schema documentation for avlnoo.xsd')">pasientjournal/merknad</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_merknad" type="image" src="img/btM.gif" value="-" onclick="switchState('source_merknad');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_merknad" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tEl">&lt;xs:simpleType</span><span class="tAN"> name=</span><span class="tAV">"merknad"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Felt for registrering av fritekstmerknad dersom brukeren har behov for å knytte en beskrivende anmerkning til journalavleveringen.</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:simpleType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="filnavn"></a><div class="componentTitle">Simple Type <span class="qname">filnavn</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_filnavn" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_filnavn');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_filnavn" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%">
+                                          <pre><span class="tT">Filnavn</span></pre>
+                                       </td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_filnavn" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_filnavn');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_filnavn" style="display:block"><img alt="Diagram" border="0" src="img/avlnoo-mdk_xsd_Simple_Type_filnavn.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_filnavn" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_filnavn');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_filnavn" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="avlnoo_xsd.html#databasedump_filnavn" target="mainFrame" title="http://www.arkivverket.no/standarder/nha/avlnoo" onclick="updatePageTitle('Schema documentation for avlnoo.xsd')">databasedump/filnavn</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_filnavn" type="image" src="img/btM.gif" value="-" onclick="switchState('source_filnavn');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_filnavn" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tEl">&lt;xs:simpleType</span><span class="tAN"> name=</span><span class="tAV">"filnavn"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Filnavn</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:simpleType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="dumpdato"></a><div class="componentTitle">Simple Type <span class="qname">dumpdato</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_dumpdato" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_dumpdato');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_dumpdato" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%">
+                                          <pre><span class="tT">Dumpet dato</span></pre>
+                                       </td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_dumpdato" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_dumpdato');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_dumpdato" style="display:block"><img alt="Diagram" border="0" src="img/avlnoo-mdk_xsd_Simple_Type_dumpdato.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:date</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_dumpdato" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_dumpdato');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_dumpdato" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="avlnoo_xsd.html#databasedump_dumpdato" target="mainFrame" title="http://www.arkivverket.no/standarder/nha/avlnoo" onclick="updatePageTitle('Schema documentation for avlnoo.xsd')">databasedump/dumpdato</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_dumpdato" type="image" src="img/btM.gif" value="-" onclick="switchState('source_dumpdato');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_dumpdato" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tEl">&lt;xs:simpleType</span><span class="tAN"> name=</span><span class="tAV">"dumpdato"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Dumpet dato</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:date"</span><span class="tEl">/&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:simpleType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="fagsystem"></a><div class="componentTitle">Simple Type <span class="qname">fagsystem</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_fagsystem" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_fagsystem');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_fagsystem" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%">
+                                          <pre><span class="tT">Fagsystemet databasen kommer fra</span></pre>
+                                       </td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_fagsystem" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_fagsystem');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_fagsystem" style="display:block"><img alt="Diagram" border="0" src="img/avlnoo-mdk_xsd_Simple_Type_fagsystem.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_fagsystem" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_fagsystem');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_fagsystem" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="avlnoo_xsd.html#databasedump_fagsystem" target="mainFrame" title="http://www.arkivverket.no/standarder/nha/avlnoo" onclick="updatePageTitle('Schema documentation for avlnoo.xsd')">databasedump/fagsystem</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_fagsystem" type="image" src="img/btM.gif" value="-" onclick="switchState('source_fagsystem');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_fagsystem" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tEl">&lt;xs:simpleType</span><span class="tAN"> name=</span><span class="tAV">"fagsystem"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Fagsystemet databasen kommer fra</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:simpleType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="dbtype"></a><div class="componentTitle">Simple Type <span class="qname">dbtype</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_dbtype" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_dbtype');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_dbtype" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%">
+                                          <pre><span class="tT">Type, dersom kjent (SQL, NoSQL, OO)</span></pre>
+                                       </td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_dbtype" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_dbtype');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_dbtype" style="display:block"><img alt="Diagram" border="0" src="img/avlnoo-mdk_xsd_Simple_Type_dbtype.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_dbtype" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_dbtype');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_dbtype" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="avlnoo_xsd.html#databasedump_dbtype" target="mainFrame" title="http://www.arkivverket.no/standarder/nha/avlnoo" onclick="updatePageTitle('Schema documentation for avlnoo.xsd')">databasedump/dbtype</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_dbtype" type="image" src="img/btM.gif" value="-" onclick="switchState('source_dbtype');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_dbtype" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tEl">&lt;xs:simpleType</span><span class="tAN"> name=</span><span class="tAV">"dbtype"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Type, dersom kjent (SQL, NoSQL, OO)</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:simpleType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="pasantall"></a><div class="componentTitle">Simple Type <span class="qname">pasantall</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_pasantall" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_pasantall');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_pasantall" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%">
+                                          <pre><span class="tT">Antall pasientjournaler i databasen dersom kjent</span></pre>
+                                       </td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_pasantall" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_pasantall');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_pasantall" style="display:block"><img alt="Diagram" border="0" src="img/avlnoo-mdk_xsd_Simple_Type_pasantall.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:int</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_pasantall" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_pasantall');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_pasantall" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="avlnoo_xsd.html#databasedump_pasantall" target="mainFrame" title="http://www.arkivverket.no/standarder/nha/avlnoo" onclick="updatePageTitle('Schema documentation for avlnoo.xsd')">databasedump/pasantall</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_pasantall" type="image" src="img/btM.gif" value="-" onclick="switchState('source_pasantall');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_pasantall" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tEl">&lt;xs:simpleType</span><span class="tAN"> name=</span><span class="tAV">"pasantall"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Antall pasientjournaler i databasen dersom kjent</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:int"</span><span class="tEl">/&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:simpleType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="storrelse"></a><div class="componentTitle">Simple Type <span class="qname">storrelse</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_storrelse" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_storrelse');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_storrelse" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%">
+                                          <pre><span class="tT">Databasens størrelse i bytes, dersom kjent</span></pre>
+                                       </td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_storrelse" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_storrelse');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_storrelse" style="display:block"><img alt="Diagram" border="0" src="img/avlnoo-mdk_xsd_Simple_Type_storrelse.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:long</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_storrelse" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_storrelse');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_storrelse" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="avlnoo_xsd.html#databasedump_storrelse" target="mainFrame" title="http://www.arkivverket.no/standarder/nha/avlnoo" onclick="updatePageTitle('Schema documentation for avlnoo.xsd')">databasedump/storrelse</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_storrelse" type="image" src="img/btM.gif" value="-" onclick="switchState('source_storrelse');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_storrelse" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tEl">&lt;xs:simpleType</span><span class="tAN"> name=</span><span class="tAV">"storrelse"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Databasens størrelse i bytes, dersom kjent</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:long"</span><span class="tEl">/&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:simpleType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="pakket"></a><div class="componentTitle">Simple Type <span class="qname">pakket</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_pakket" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_pakket');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_pakket" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%">
+                                          <pre><span class="tT">Er databasen pakket, i hva? F.eks. tar eller zip</span></pre>
+                                       </td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_pakket" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_pakket');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_pakket" style="display:block"><img alt="Diagram" border="0" src="img/avlnoo-mdk_xsd_Simple_Type_pakket.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_pakket" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_pakket');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_pakket" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="avlnoo_xsd.html#databasedump_pakket" target="mainFrame" title="http://www.arkivverket.no/standarder/nha/avlnoo" onclick="updatePageTitle('Schema documentation for avlnoo.xsd')">databasedump/pakket</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_pakket" type="image" src="img/btM.gif" value="-" onclick="switchState('source_pakket');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_pakket" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tEl">&lt;xs:simpleType</span><span class="tAN"> name=</span><span class="tAV">"pakket"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Er databasen pakket, i hva? F.eks. tar eller zip</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:simpleType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="komprimert"></a><div class="componentTitle">Simple Type <span class="qname">komprimert</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Annotations</b></div>
+                           <div class="floatRight"><input id="button_annotations_komprimert" type="image" src="img/btM.gif" value="-" onclick="switchState('annotations_komprimert');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="annotations_komprimert" style="display:block">
+                              <div class="annotation">
+                                 <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                    <tr>
+                                       <td width="100%">
+                                          <pre><span class="tT">Er databasen komprimert, f.eks zip, bzip2, gz</span></pre>
+                                       </td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_komprimert" type="image" src="img/btM.gif" value="-" onclick="switchState('diagram_komprimert');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_komprimert" style="display:block"><img alt="Diagram" border="0" src="img/avlnoo-mdk_xsd_Simple_Type_komprimert.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_komprimert" type="image" src="img/btM.gif" value="-" onclick="switchState('usedBy_komprimert');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_komprimert" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="avlnoo_xsd.html#databasedump_komprimert" target="mainFrame" title="http://www.arkivverket.no/standarder/nha/avlnoo" onclick="updatePageTitle('Schema documentation for avlnoo.xsd')">databasedump/komprimert</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_komprimert" type="image" src="img/btM.gif" value="-" onclick="switchState('source_komprimert');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_komprimert" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tEl">&lt;xs:simpleType</span><span class="tAN"> name=</span><span class="tAV">"komprimert"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:annotation</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:documentation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">Er databasen komprimert, f.eks zip, bzip2, gz</span><span class="tEl">&lt;/xs:documentation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:annotation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:simpleType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table>
+      <div class="footer">
+         <hr />
+         <div align="center">XML Schema documentation generated by <a href="http://www.oxygenxml.com" target="_parent"><span class="oXygenLogo"><span class="redX">&lt;</span>o<span class="redX">X</span>ygen<span class="redX">/&gt;</span></span></a><sup>®</sup> XML Editor.</div>
+      </div><script type="text/javascript"><!--
+                     // The namespace is the selected option in the TOC combo.
+                    
+                     // Floats the toolbar.
+                     var globalControls = getElementObject("global_controls"); 
+                     
+                     if(globalControls != null){
+	                     var browser=navigator.appName;
+						 var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+						 
+						 var IE6 = false;
+						 if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+						 	IE6 = true;
+						 }
+	
+	                     //alert (IE6 + " |V| " + version);
+	                     
+	                     if(IE6){
+	                     	// On IE 6 the 'fixed' property is not supported. We must use javascript. 
+	                         globalControls.style.position='absolute';                         
+	                         // The global controls will do not exist in the TOC frame, when chunking.
+	                         findAndFloat("global_controls", 225, 30);    
+	                     } else {
+	                      	  globalControls.style.position='fixed';                     	
+	                     }
+	                     
+	                     globalControls.style.right='0';                       
+                     }
+                //--></script></body>
+</html>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://www.arkivverket.no/standarder/nha/avlnoo"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="http://www.arkivverket.no/standarder/nha/avlnoo"
+  xmlns:avlmdk="http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk"
+  elementFormDefault="qualified">
+
+  <xs:import namespace="http://www.arkivverket.no/standarder/nha/avlxml/avlnoo-mdk"
+    schemaLocation="avlnoo-mdk.xsd"/>
+
+  <xs:element name="avlnoo" type="deponering"/>
+
+  <!-- DEPONERING 
+    deponeringsid           | string  | O | En unik identifikator tildelt av Norsk helsearkiv ved inngåelse av avtale om deponering. 
+    deponeringsbeskrivelse  | string  | O | Tekstlig beskrivelse av den aktuelle deponeringen. Typisk beskrivelse av serie, periode eller annen avgrensning. 
+    generertdato            | date    | B | Den dato listen over metadata ble generert ble generert 
+    avleverer               | string  | B | Navnet på den avleverende enhet. Typisk statsforvalter eller lignende.  
+    behandler               | string  | B | Navn på behandler som registrert på HPR-registeret 
+    behandlerid             | string  | B | Typisk HPR-nummer til behandler. 
+    spesialisthelsetjeneste | boolean | B | Angir om behandler er del av spesialisthelsetjenesten og omfattet av helsearkivforskrifta [4] eller ikke 
+  -->
+
+  <xs:complexType name="deponering">
+    <xs:annotation>
+      <xs:documentation>
+        Denne klassen representerer rotnoden i meldingen og beskriver hele deponeringen. 
+        Denne informasjonen skal knyttes til alle pasientjournaler men kan forekomme kun 
+        en gang i en total liste over alle pasientjournaler i en deponering.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="deponeringsid" type="avlmdk:deponeringsid"/>
+      <xs:element name="deponeringsbeskrivelse" type="avlmdk:deponeringsbeskrivelse"/>
+      <xs:element minOccurs="0" name="generertdato" type="avlmdk:generertdato"/>
+      <xs:element minOccurs="0" name="avleverer" type="avlmdk:avleverer"/>
+      <xs:element minOccurs="0" name="behandler" type="avlmdk:behandler"/>
+      <xs:element minOccurs="0" name="behandlerid" type="avlmdk:behandlerid"/>
+      <xs:element minOccurs="0" name="spesialisthelsetjeneste" type="avlmdk:spesialisthelsetjeneste"/>
+      <xs:element maxOccurs="unbounded" name="pasientjournal" type="pasientjournal"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="databasedump" type="databasedump"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- PASIENTJOURNAL
+    journalid    | string | O | Identifikator for pasientjournalen som er garantert unik innenfor denne avleveringen. Skal være det samme som filnavnet på pdf dersom det er generert pdf. (pasientID+datetime er å foretrekke ) 
+    opprettet    | date   | O | Dato for når registreringen er opprettet
+    pasientid    | string | O | Pasientens unike ID-nummer.  Fortrinnsvis brukes personnummer, men nasjonal D-nummer eller virksomhetsinterne H-nummer eller FH-nummer kan registreres dersom pasientens personnummer ikke er kjent. 
+    pasientnavn  | string | O | Pasientens fulle navn
+    fodtdato     | date   | O | Pasientens fødselsdato, eller fødselsår dersom bare årstall er kjent
+    sistekontakt | date   | B | Siste anførsel i journalen. Blir registrert så lenge det går frem av pasientjournalomslag. 
+    merknad      | string | B | Felt for registrering av fritekstmerknad dersom brukeren har behov for å knytte en beskrivende anmerkning til journalavleveringen.
+  -->
+  
+  <xs:complexType name="pasientjournal">
+    <xs:annotation>
+      <xs:documentation>Pasientjournal i en avleveringsliste</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="journalid" type="avlmdk:journalid"/>
+      <xs:element name="opprettet" type="avlmdk:opprettet"/>
+      <xs:element name="pasientid" type="avlmdk:pasientid"/>
+      <xs:element name="pasientnavn" type="avlmdk:pasientnavn"/>
+      <xs:element name="fodtdato" type="avlmdk:fodtdato"/>
+      <xs:element minOccurs="0" name="sistekontakt" type="avlmdk:sistekontakt"/>
+      <xs:element minOccurs="0" name="merknad" type="avlmdk:merknad"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!-- DATABASEDUMP
+    filnavn    | string | O | Filnavn
+    dumpdato   | date   | O | Dumpet dato
+    fagsystem  | string | B | Fagsystemet databasen kommer fra
+    dbtype     | string | B | Type, dersom kjent (SQL, NoSQL, OO)
+    pasantall  | int    | B | Antall pasientjournaler i databasen dersom kjent
+    storrelse  | long   | B | Databasens størrelse i bytes, dersom kjent
+    pakket     | string | B | Er databasen pakket, i hva? F.eks. tar eller zip
+    komprimert | string | B | Er databasen komprimert, f.eks zip, bzip2, gz
+  -->
+  
+  <xs:complexType name="databasedump">
+    <xs:annotation>
+      <xs:documentation>Databasedump som inneholder mottatte pasientjournaler</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="filnavn" type="avlmdk:filnavn"/>
+      <xs:element name="dumpdato" type="avlmdk:dumpdato"/>
+      <xs:element minOccurs="0" name="fagsystem" type="avlmdk:fagsystem"/>
+      <xs:element minOccurs="0" name="dbtype" type="avlmdk:dbtype"/>
+      <xs:element minOccurs="0" name="pasantall" type="avlmdk:pasantall"/>
+      <xs:element minOccurs="0" name="storrelse" type="avlmdk:storrelse"/>
+      <xs:element minOccurs="0" name="pakket" type="avlmdk:pakket"/>
+      <xs:element minOccurs="0" name="komprimert" type="avlmdk:komprimert"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
