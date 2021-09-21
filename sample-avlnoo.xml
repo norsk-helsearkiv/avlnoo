@@ -56,11 +56,10 @@
     dbid          | string | O | Identifikator for databasedump som er garantert unik innenfor denne avleveringen. Skal være det samme som 
                                   filnavnet plus datetime, skilletegn mellom filnavn og datetime er «-« og fileextension forblir bakerst. 
                                   F.eks. filnavn db.tar blir til db-2021-09-17T124650.tar (pasientID+datetime er å foretrekke ) 
-    opprettet     | date   | O | Dato for når registreringen er opprettet
+    generertdato  | date   | B | Dato som viser når databasedumpen eller avl ble generert
     jsyslev       | string | O | Leverandør av fagsystem, typisk selskapet som utvikler journalsystemet.
     jsysnavn      | string | O | Navn på journalsystemet
     jsysver       | string | O | Versjon av journalsystem når databasedump ble opprettet. 
-    generertdato  | date   | B | Dato som viser når databasedumpen eller avl ble generert
     dbtype        | string | B | Type database som ble brukt av pasientjournalsystem, dersom kjent.
     dbsize        | long   | B | Databasedump størrelse i bytes
     merknad       | string | B | Felt for registrering av fritekstmerknad 
@@ -68,11 +67,10 @@
     
     <databasedump>
         <dbid>dbdump01-2021-09-21T235959.tar</dbid>
-        <opprettet>2021-09-09</opprettet>
+        <generertdato>2021-09-21</generertdato>
         <jsyslev>Morrojournalen AS</jsyslev>
         <jsysnavn>Journalmorro</jsysnavn>
         <jsysver>0.01</jsysver>
-        <generertdato>2021-09-21</generertdato>
         <dbtype>SQL</dbtype>
         <dbsize>800008</dbsize>
         <merknad>2019-2020</merknad>

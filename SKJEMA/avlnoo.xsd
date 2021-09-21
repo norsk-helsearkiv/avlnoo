@@ -86,11 +86,10 @@
     </xs:annotation>
     <xs:sequence>
       <xs:element name="dbid" type="avlmdk:dbid"/>
-      <xs:element name="opprettet" type="avlmdk:opprettet"/>
-      <xs:element name="jsyslev" type="avlmdk:jsyslev"></xs:element>
-      <xs:element name="jsysnavn" type="avlmdk:jsysnavn"/>
-      <xs:element name="jsysver" type="avlmdk:jsysver"/>
       <xs:element minOccurs="0" name="generertdato" type="avlmdk:generertdato"></xs:element>
+      <xs:element minOccurs="0" name="jsyslev" type="avlmdk:jsyslev"></xs:element>
+      <xs:element minOccurs="0" name="jsysnavn" type="avlmdk:jsysnavn"/>
+      <xs:element minOccurs="0" name="jsysver" type="avlmdk:jsysver"/>
       <xs:element minOccurs="0" name="dbtype" type="avlmdk:dbtype"/>
       <xs:element minOccurs="0" name="dbsize" type="avlmdk:dbsize"/>
       <xs:element minOccurs="0" name="merknad" type="avlmdk:merknad"/>
