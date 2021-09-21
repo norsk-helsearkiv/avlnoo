@@ -13,7 +13,7 @@
   <!-- DEPONERING 
     deponeringsid           | string  | O | En unik identifikator tildelt av Norsk helsearkiv ved inngåelse av avtale om deponering. 
     deponeringsbeskrivelse  | string  | O | Tekstlig beskrivelse av den aktuelle deponeringen. Typisk beskrivelse av serie, periode eller annen avgrensning. 
-    generertdato            | date    | B | Den dato listen over metadata ble generert ble generert 
+    generertdato            | date    | B | Dato som viser når databasedumpen eller avl ble generert 
     avleverer               | string  | B | Navnet på den avleverende enhet. Typisk statsforvalter eller lignende.  
     behandler               | string  | B | Navn på behandler som registrert på HPR-registeret 
     behandlerid             | string  | B | Typisk HPR-nummer til behandler. 
@@ -37,20 +37,20 @@
       <xs:element minOccurs="0" name="behandlerid" type="avlmdk:behandlerid"/>
       <xs:element minOccurs="0" name="spesialisthelsetjeneste" type="avlmdk:spesialisthelsetjeneste"/>
       <xs:element maxOccurs="unbounded" name="pasientjournal" type="pasientjournal"/>
-      <xs:element minOccurs="0" maxOccurs="1" name="databasedump" type="databasedump"/>
+      <xs:element minOccurs="0" name="databasedump" type="databasedump"/>
     </xs:sequence>
   </xs:complexType>
 
   <!-- PASIENTJOURNAL
     journalid    | string | O | Identifikator for pasientjournalen som er garantert unik innenfor denne avleveringen. Skal være det samme som filnavnet på pdf dersom det er generert pdf. (pasientID+datetime er å foretrekke ) 
-    opprettet    | date   | O | Dato for når registreringen er opprettet
+    opprettet    | date   | O | Dato for når objekt/registrering er opprettet
     pasientid    | string | O | Pasientens unike ID-nummer.  Fortrinnsvis brukes personnummer, men nasjonal D-nummer eller virksomhetsinterne H-nummer eller FH-nummer kan registreres dersom pasientens personnummer ikke er kjent. 
     pasientnavn  | string | O | Pasientens fulle navn
     fodtdato     | date   | O | Pasientens fødselsdato, eller fødselsår dersom bare årstall er kjent
     sistekontakt | date   | B | Siste anførsel i journalen. Blir registrert så lenge det går frem av pasientjournalomslag. 
     merknad      | string | B | Felt for registrering av fritekstmerknad dersom brukeren har behov for å knytte en beskrivende anmerkning til journalavleveringen.
   -->
-  
+
   <xs:complexType name="pasientjournal">
     <xs:annotation>
       <xs:documentation>Pasientjournal i en avleveringsliste</xs:documentation>
@@ -65,31 +65,35 @@
       <xs:element minOccurs="0" name="merknad" type="avlmdk:merknad"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <!-- DATABASEDUMP
-    filnavn    | string | O | Filnavn
-    dumpdato   | date   | O | Dumpet dato
-    fagsystem  | string | B | Fagsystemet databasen kommer fra
-    dbtype     | string | B | Type, dersom kjent (SQL, NoSQL, OO)
-    pasantall  | int    | B | Antall pasientjournaler i databasen dersom kjent
-    storrelse  | long   | B | Databasens størrelse i bytes, dersom kjent
-    pakket     | string | B | Er databasen pakket, i hva? F.eks. tar eller zip
-    komprimert | string | B | Er databasen komprimert, f.eks zip, bzip2, gz
+    dbid          | string | O | Identifikator for databasedump som er garantert unik innenfor denne avleveringen. Skal være det samme som 
+                                  filnavnet plus datetime, skilletegn mellom filnavn og datetime er «-« og fileextension forblir bakerst. 
+                                  F.eks. filnavn db.tar blir til db-2021-09-17T124650.tar (pasientID+datetime er å foretrekke ) 
+    opprettet     | date   | O | Dato for når registreringen er opprettet
+    jsyslev       | string | O | Leverandør av fagsystem, typisk selskapet som utvikler journalsystemet.
+    jsysnavn      | string | O | Navn på journalsystemet
+    jsysver       | string | O | Versjon av journalsystem når databasedump ble opprettet. 
+    generertdato  | date   | B | Dato som viser når databasedumpen eller avl ble generert
+    dbtype        | string | B | Type database som ble brukt av pasientjournalsystem, dersom kjent.
+    dbsize        | long   | B | Databasedump størrelse i bytes
+    merknad       | string | B | Felt for registrering av fritekstmerknad 
   -->
-  
+
   <xs:complexType name="databasedump">
     <xs:annotation>
       <xs:documentation>Databasedump som inneholder mottatte pasientjournaler</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="filnavn" type="avlmdk:filnavn"/>
-      <xs:element name="dumpdato" type="avlmdk:dumpdato"/>
-      <xs:element minOccurs="0" name="fagsystem" type="avlmdk:fagsystem"/>
+      <xs:element name="dbid" type="avlmdk:dbid"/>
+      <xs:element name="opprettet" type="avlmdk:opprettet"/>
+      <xs:element name="jsyslev" type="avlmdk:jsyslev"></xs:element>
+      <xs:element name="jsysnavn" type="avlmdk:jsysnavn"/>
+      <xs:element name="jsysver" type="avlmdk:jsysver"/>
+      <xs:element minOccurs="0" name="generertdato" type="avlmdk:generertdato"></xs:element>
       <xs:element minOccurs="0" name="dbtype" type="avlmdk:dbtype"/>
-      <xs:element minOccurs="0" name="pasantall" type="avlmdk:pasantall"/>
-      <xs:element minOccurs="0" name="storrelse" type="avlmdk:storrelse"/>
-      <xs:element minOccurs="0" name="pakket" type="avlmdk:pakket"/>
-      <xs:element minOccurs="0" name="komprimert" type="avlmdk:komprimert"/>
+      <xs:element minOccurs="0" name="dbsize" type="avlmdk:dbsize"/>
+      <xs:element minOccurs="0" name="merknad" type="avlmdk:merknad"/>
     </xs:sequence>
   </xs:complexType>
 

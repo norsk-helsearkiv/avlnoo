@@ -36,7 +36,7 @@
     <pasientjournal>
         <journalid>journalidentifikator0</journalid>
         <opprettet>2021-09-09</opprettet>
-        <pasientid>12345612345</pasientid>
+        <pasientid>670843 98765</pasientid>
         <pasientnavn>pasientnavn0</pasientnavn>
         <fodtdato>1800</fodtdato>
         <sistekontakt>1800</sistekontakt>
@@ -45,7 +45,7 @@
     <pasientjournal>
         <journalid>journalidentifikator0</journalid>
         <opprettet>2021-09-09</opprettet>
-        <pasientid>12345612345</pasientid>
+        <pasientid>080894612345</pasientid>
         <pasientnavn>pasientnavn0</pasientnavn>
         <fodtdato>1800</fodtdato>
         <sistekontakt>1800</sistekontakt>
@@ -53,24 +53,28 @@
     </pasientjournal>
         
     <!-- DATABASEDUMP
-        filnavn    | string | O | Filnavn
-        dumpdato   | date   | O | Dumpet dato
-        fagsystem  | string | B | Fagsystemet databasen kommer fra
-        dbtype     | string | B | Type, dersom kjent (SQL, NoSQL, OO)
-        pasantall  | int    | B | Antall pasientjournaler i databasen dersom kjent
-        storrelse  | long   | B | Databasens størrelse i bytes, dersom kjent
-        pakket     | string | B | Er databasen pakket, i hva? F.eks. tar eller zip
-        komprimert | string | B | Er databasen komprimert, f.eks zip, bzip2, gz
-    -->
+    dbid          | string | O | Identifikator for databasedump som er garantert unik innenfor denne avleveringen. Skal være det samme som 
+                                  filnavnet plus datetime, skilletegn mellom filnavn og datetime er «-« og fileextension forblir bakerst. 
+                                  F.eks. filnavn db.tar blir til db-2021-09-17T124650.tar (pasientID+datetime er å foretrekke ) 
+    opprettet     | date   | O | Dato for når registreringen er opprettet
+    jsyslev       | string | O | Leverandør av fagsystem, typisk selskapet som utvikler journalsystemet.
+    jsysnavn      | string | O | Navn på journalsystemet
+    jsysver       | string | O | Versjon av journalsystem når databasedump ble opprettet. 
+    generertdato  | date   | B | Dato som viser når databasedumpen eller avl ble generert
+    dbtype        | string | B | Type database som ble brukt av pasientjournalsystem, dersom kjent.
+    dbsize        | long   | B | Databasedump størrelse i bytes
+    merknad       | string | B | Felt for registrering av fritekstmerknad 
+  -->
     
     <databasedump>
-        <filnavn>dbdump01.tar</filnavn>
-        <dumpdato>2021-09-09</dumpdato>
-        <fagsystem>fagsystem</fagsystem>
+        <dbid>dbdump01-2021-09-21T235959.tar</dbid>
+        <opprettet>2021-09-09</opprettet>
+        <jsyslev>Morrojournalen AS</jsyslev>
+        <jsysnavn>Journalmorro</jsysnavn>
+        <jsysver>0.01</jsysver>
+        <generertdato>2021-09-21</generertdato>
         <dbtype>SQL</dbtype>
-        <pasantall>2</pasantall>
-        <storrelse>800008</storrelse>
-        <pakket>zip</pakket>
-        <komprimert>zip</komprimert>
+        <dbsize>800008</dbsize>
+        <merknad>2019-2020</merknad>
     </databasedump>
 </avlnoo>
